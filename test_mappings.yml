@@ -1,0 +1,5 @@
+YerMaw:
+    properties:
+        url:
+            - \local_symfony\validation\url: ~
+        
