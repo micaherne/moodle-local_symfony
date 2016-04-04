@@ -2,4 +2,6 @@ TestClass:
     properties:
         url:
             - \local_symfony\validation\url: ~
+        username:
+            - \local_symfony\validation\username: ~
         
