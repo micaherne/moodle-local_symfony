@@ -4,7 +4,9 @@
     "type": "moodle-local",
     "require": {
         "symfony/validator": "^3.0",
-        "symfony/yaml": "^3.0"
+        "symfony/yaml": "^3.0",
+        "doctrine/annotations": "^1.2",
+        "doctrine/cache": "^1.6"
     },
     "license": "GPL-3.0",
     "authors": [
