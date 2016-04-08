@@ -1,11 +1,16 @@
 <?php
 use Symfony\Component\Validator\Validation;
+use local_symfony\templating\moodle_engine;
 
 require_once '../../config.php';
 require_once 'vendor/autoload.php';
 
-use local_symfony\annotations\moodle_type;
-use Doctrine\Common\Annotations\AnnotationRegistry;
+$PAGE->set_context(context_system::instance());
+
+$engine = new moodle_engine();
+var_dump($engine->supports('mod_forum/forum_post_email_htmlemail_body'));
+var_dump($engine->supports('test.twig.html'));
+exit;
 
 class TestClass {
 

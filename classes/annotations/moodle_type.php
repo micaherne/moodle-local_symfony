@@ -5,8 +5,9 @@ namespace local_symfony\annotations;
 use Symfony\Component\Validator\Constraint;
 
 /**
+ * Define the Moodle PARAM_* type of a property
  * @Annotation
- *
+ * @Target({"PROPERTY"})
  */
 class moodle_type extends Constraint {
 

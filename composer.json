@@ -6,7 +6,9 @@
         "symfony/validator": "^3.0",
         "symfony/yaml": "^3.0",
         "doctrine/annotations": "^1.2",
-        "doctrine/cache": "^1.6"
+        "doctrine/cache": "^1.6",
+        "symfony/form": "^3.0",
+        "symfony/templating": "^3.0"
     },
     "license": "GPL-3.0",
     "authors": [
