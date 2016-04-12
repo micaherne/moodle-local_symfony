@@ -1,6 +1,6 @@
 <?php
 
-namespace local_symfony\annotations;
+namespace local_symfony\validator;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
