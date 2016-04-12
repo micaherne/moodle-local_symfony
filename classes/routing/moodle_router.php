@@ -17,10 +17,12 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class moodle_router extends Router {
 
+	protected $loader;
+
 	public function __construct() {
 		$locator = new FileLocator();
-		$loader = new YamlFileLoader($locator);
-		parent::__construct($loader, '');
+		$this->loader = new YamlFileLoader($locator);
+		parent::__construct($this->loader, '');
 	}
 
 	public function getRouteCollection() {
@@ -37,12 +39,7 @@ class moodle_router extends Router {
 			}
 		}
 
-		$locator = new FileLocator(array_values($routedcomponents));
-		$loader = new YamlFileLoader($locator);
-
-		$request = Request::createFromGlobals();
-
-		$collectionbuilder = new RouteCollectionBuilder($loader);
+		$collectionbuilder = new RouteCollectionBuilder($this->loader);
 		foreach ($routedcomponents as $component => $routeyamlpath) {
 			list($plugintype, $pluginname) = \core_component::normalize_component($component);
 			$collectionbuilder->import($path, str_replace($CFG->dirroot, '', \core_component::get_plugin_directory($plugintype, $pluginname)));
