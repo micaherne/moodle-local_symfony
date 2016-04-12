@@ -20,9 +20,12 @@ class moodle_router extends Router {
 	protected $loader;
 
 	public function __construct() {
+		global $CFG;
+
 		$locator = new FileLocator();
 		$this->loader = new YamlFileLoader($locator);
 		parent::__construct($this->loader, '');
+		$this->setOption('cache_dir', $CFG->dataroot . '/local_symfony/routing/cache');
 	}
 
 	public function getRouteCollection() {
