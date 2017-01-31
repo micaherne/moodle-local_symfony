@@ -2,11 +2,10 @@
 
 namespace local_symfony\routing;
 
-use Symfony\Component\Routing\Router;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Router;
 
 /**
  * Router for moodle plugins.
@@ -45,7 +44,7 @@ class moodle_router extends Router {
 		$collectionbuilder = new RouteCollectionBuilder($this->loader);
 		foreach ($routedcomponents as $component => $routeyamlpath) {
 			list($plugintype, $pluginname) = \core_component::normalize_component($component);
-			$collectionbuilder->import($path, str_replace($CFG->dirroot, '', \core_component::get_plugin_directory($plugintype, $pluginname)));
+			$collectionbuilder->import($routeyamlpath, str_replace($CFG->dirroot, '', \core_component::get_plugin_directory($plugintype, $pluginname)));
 		}
 		return $collectionbuilder->build();
 	}
