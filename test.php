@@ -1,16 +1,16 @@
 <?php
 use Symfony\Component\Validator\Validation;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use local_symfony\templating\moodle_engine;
+use local_symfony\validator\moodle_type;
 
+define('CLI_SCRIPT', 1);
 require_once '../../config.php';
 require_once 'vendor/autoload.php';
 
 $PAGE->set_context(context_system::instance());
 
 $engine = new moodle_engine();
-var_dump($engine->supports('mod_forum/forum_post_email_htmlemail_body'));
-var_dump($engine->supports('test.twig.html'));
-exit;
 
 class TestClass {
 
@@ -27,7 +27,7 @@ class TestClass {
 
 $test = new TestClass();
 
-AnnotationRegistry::registerFile($CFG->dirroot . "/local/symfony/classes/annotations/moodle_type.php");
+AnnotationRegistry::registerFile($CFG->dirroot . "/local/symfony/classes/validator/moodle_type.php");
 
 $validator = Validation::createValidatorBuilder()
     ->enableAnnotationMapping()

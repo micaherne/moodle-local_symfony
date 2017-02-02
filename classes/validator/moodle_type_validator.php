@@ -9,12 +9,13 @@ class moodle_type_validator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        if ((string) $value != (string) clean_param($value, $constraint->type)) {
-
+        try {
+            validate_param($value, $constraint->type);
+        } catch (\invalid_parameter_exception $e) {
             $this->context->buildViolation($constraint->message)
-                ->setParameter('%string%', $value)
-                ->setParameter('%type%', 'PARAM_' . strtoupper($constraint->type))
-                ->addViolation();
+            ->setParameter('%string%', $value)
+            ->setParameter('%type%', 'PARAM_' . strtoupper($constraint->type))
+            ->addViolation();
         }
     }
 }
