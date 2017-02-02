@@ -1,4 +1,5 @@
 <?php
+
 use Symfony\Component\Validator\Validation;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use local_symfony\templating\moodle_engine;
